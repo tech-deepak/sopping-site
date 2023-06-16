@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: #454545;
+    text-align: center;
+    color: white;
+}
+
+.button-color {
+    background-color: #454545;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 9px;
+    margin: 3px;
+}

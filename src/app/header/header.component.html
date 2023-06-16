@@ -1,0 +1,60 @@
+<div *ngIf="!isAdmin" class="boader-bottom">
+   <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+      <div class="container-fluid">
+         <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="/">Grocery App</a>
+               </li>
+               <li class="nav-item" *ngIf="isLogged">
+                  <a class="nav-link" href="about.html">User</a>
+               </li>
+               <li class="nav-item" *ngIf="isLogged">
+                  <a class="nav-link" href="product.html">View Cart</a>
+               </li>
+               <li class="nav-item" *ngIf="isLogged">
+                  <a class="nav-link" href="gallery.html">My Orders</a>
+               </li>
+               <li class="nav-item" *ngIf="isLogged">
+                  <a class="nav-link" href="javascript:void(0)" role="button" (click)="signOut()">Sign Out</a>
+               </li>
+               <li class="nav-item" *ngIf="isLogged">
+                  <a class="nav-link" href="contact.html">Help</a>
+               </li>
+               <li class="nav-item" *ngIf="!isLogged">
+                  <a class="nav-link" href="login">Login</a>
+               </li>
+               <li class="nav-item" *ngIf="!isLogged">
+                  <a class="nav-link" href="signup">Sign Up</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
+
+<div *ngIf="isAdmin" class="boader-bottom">
+   <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+      <div class="container-fluid">
+         <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="/">Grocery App</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="">Admin</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Add Product</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="javascript:void(0)" role="button" (click)="signOut()">Sign Out</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Help</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+</div>
