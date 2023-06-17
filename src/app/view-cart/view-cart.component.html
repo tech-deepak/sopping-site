@@ -1,28 +1,28 @@
 <section class="container">
-    <h6>My Cart</h6>
-    <div class="row my-3" *ngFor="let item of products; index as i">
+    <h1>My Cart</h1>
+    <div class="row my-3"  *ngFor="let item of products; index as i">
         <div class="col-1 add-remove">
             <input type="checkbox" name="" id="">
         </div>
-        <div class="col-8" *ngFor="let item of products">
+        <div class="col-8">
             <div class="d-flex">
                 <div class="image-boder">
-                    <img width="80px" src="https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8=" alt="">
+                    <img width="80px" src="{{bashUrl}}/{{item?.product?.pImage}}" alt="">
                 </div>
                 <div class="ml-2">
-                    <div class="product-details">Real akjsdhf</div>
-                    <div class="product-details">Up to 5% off</div>
-                    <div class="product-details">$45</div>
+                    <div class="product-details">{{ item?.product?.pname }}</div>
+                    <div class="product-details">Up to {{ item?.product?.pDiscount }}% off</div>
+                    <div class="product-details">₹ {{ item?.product?.pPrice }}</div>
                 </div>
             </div>
         </div>
         <div class="col-3 add-remove">
             <button class="remove-button" (click)="addRemove(i, 'ADD')">-</button>
-            <span class="mx-3">2</span>
+            <span class="mx-3">{{ item.quantity }}</span>
             <button class="add-button" (click)="addRemove(i, 'REMOVE')">+</button>
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-dark">Place Order</button>
+        <button class="btn btn-dark" (click)="placeOrder()" >Place Order</button>
     </div>
 </section>

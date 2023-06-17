@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 
 export class ProductListComponent implements OnInit {
 	showDetail: boolean = false;
-	isAdmin: boolean = false;
+	isAdmin = localStorage.getItem('isAdmin');
 	bashUrl = environment.bashUrl;
 	categories: any = [];
 	products: any = [];
@@ -48,6 +48,12 @@ export class ProductListComponent implements OnInit {
 		this.api.get(ApiCallback.PRODUCT_SEARCH_GET.replace(':query', event.target.value)).subscribe((data) => {
 			this.products = data
 		});
+	}
+
+	delete(pid: any) {
+		this.api.delete(ApiCallback.PRODUCT_DELETE.replace(':id', pid)).subscribe((data) => {
+			location.reload();
+		})
 	}
 
 }

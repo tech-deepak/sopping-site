@@ -8,6 +8,7 @@ import {
 } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ApiCallback } from './api-callback';
 
 @Injectable()
 export class HttpInterceptorInterceptor implements HttpInterceptor {

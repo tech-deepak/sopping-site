@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-view-cart',
@@ -10,7 +11,8 @@ import { ApiService } from '../api.service';
 
 export class ViewCartComponent implements OnInit {
 
-	products: any = [{}];
+	products: any = [];
+	bashUrl = environment.bashUrl;
 	constructor(
 		public apiService: ApiService
 	) { }
@@ -33,6 +35,12 @@ export class ViewCartComponent implements OnInit {
 			default:
 				break;
 		}
+	}
+
+	placeOrder() {
+		this.apiService.post(ApiCallback.MAKE_ORDER_POST, {}).subscribe((res) => {
+
+		})
 	}
 
 

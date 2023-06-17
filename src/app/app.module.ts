@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrderComponent } from './order/order.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { HttpInterceptorInterceptor } from './http-interceptor.interceptor';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpInterceptorInterceptor } from './http-interceptor.interceptor';
     ViewCartComponent,
     OrderComponent,
     AddProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,

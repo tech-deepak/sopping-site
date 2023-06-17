@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ApiCallback } from '../api-callback';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-order',
@@ -11,6 +12,8 @@ import { ApiCallback } from '../api-callback';
 export class OrderComponent implements OnInit {
 
 	products: any = [];
+	bashUrl = environment.bashUrl;
+
 	constructor(
 		public apiService: ApiService
 	) { }

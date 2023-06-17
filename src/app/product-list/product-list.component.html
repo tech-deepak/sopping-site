@@ -29,8 +29,8 @@
                 <td (click)="openProduct(item)">₹ {{ item.pPrice }}</td>
                 <td (click)="openProduct(item)"><img src="{{bashUrl}}/{{item.pImage}}" width="100px" alt=""></td>
                 <td *ngIf="isAdmin">
-                    <button class="button-color">Edit</button>
-                    <button class="button-color">Delete</button>
+                    <a href="admin/edit-product/{{item.pid}}" class="button-color">Edit</a>
+                    <button class="button-color" (click)="delete(item.pid)">Delete</button>
                 </td>
             </tr>
         </tbody>
@@ -42,8 +42,6 @@
                 <ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#" style="color: black;">Previous</a></li>
                     <li class="page-item"><a class="page-link" href="#" style="color: black;">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#" style="color: black;">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#" style="color: black;">3</a></li>
                     <li class="page-item"><a class="page-link" href="#" style="color: black;">Next</a></li>
                 </ul>
             </nav>
