@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 		public routeActivated: ActivatedRoute,
 	) {
 		this.routeActivated.params.subscribe((param) => {
+			console.log(param)
 			this.getProduct(param.id)
 		})
 	}
@@ -31,6 +32,7 @@ export class ProductComponent implements OnInit {
 
 	getProduct(id: any) {
 		this.api.get(ApiCallback.PRODUCT_GET.replace(':id', id)).subscribe((res) => {
+			console.log(res)
 			this.product = res;
 		})
 	}

@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
 import { CommonService } from './common.service';
+import { query } from '@angular/animations';
 
 @Injectable({
 	providedIn: 'root'
@@ -20,6 +21,7 @@ export class ApiService {
 	) { }
 
 	get(callback: string, queryParams: any = '', bashUrl = this.bashUrl) {
+		console.log(callback, queryParams, bashUrl)
 		if (!!queryParams && !!Object.keys(queryParams).length) {
 			queryParams = `?${this.commonService.jsonToQueryString(queryParams)}`;
 		}

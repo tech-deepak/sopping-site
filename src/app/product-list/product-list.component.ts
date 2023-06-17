@@ -38,6 +38,7 @@ export class ProductListComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
+		console.log('hi there')
 		this.api.get(ApiCallback.ALL_PRODUCT_GET).subscribe((data) => {
 			console.log(data);
 			this.products = data
@@ -45,7 +46,7 @@ export class ProductListComponent implements OnInit {
 	}
 
 	openProduct(product: any) {
-		this.route.navigate(['/product', 'asdf'])
+		this.route.navigate(['/product', product.pid])
 	}
 
 }

@@ -1,11 +1,11 @@
 <section>
 	<div class="bg-light m-5">
 		<div class="text-center p-3">
-			<img [src]="product.image" width="200px" alt="">
+			<img src="https://localhost:5001/{{product.pImage}}" width="200px" alt="">
 		</div>
 		<div class="row">
 			<div class="col-6">
-				<div>{{ product.pImage }}</div>
+				<div>{{ product.pname }}</div>
 				<div>{{ product.pPrice }}</div>
 				<div>FLAT {{ product.pDiscount }}% off</div>
 			</div>
@@ -15,6 +15,7 @@
 					{{ quantity }}
 					<button class="button-add" (click)="add()">+</button>
 				</span>
+				<button (click)="addToCart()">Add to cart</button>
 			</div>
 		</div>
 	</div>

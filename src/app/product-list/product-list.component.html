@@ -28,7 +28,7 @@
                 <td (click)="openProduct(item)">{{ item.pname }}</td>
                 <td (click)="openProduct(item)">{{ item.pDescription }}</td>
                 <td (click)="openProduct(item)">${{ item.pPrice }}</td>
-                <td (click)="openProduct(item)"><img [src]="item.pImage" width="100px" alt=""></td>
+                <td (click)="openProduct(item)"><img src="https://localhost:5001/{{item.pImage}}" width="100px" alt=""></td>
                 <td *ngIf="isAdmin">
                     <button class="button-color">Edit</button>
                     <button class="button-color">Delete</button>

@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	login(data: any) {
+		console.log(data)
 		let endpoint = ApiCallback.LOGIN;
 		if(location.pathname === '/admin/login') {
 			endpoint = ApiCallback.LOGIN_ADMIN
