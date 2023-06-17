@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form #loginForm (ngSubmit)="login(loginForm)">
+            <form #loginForm="ngForm"  (ngSubmit)="login(loginForm)">
                 <h3 class="display-4">Login</h3>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
