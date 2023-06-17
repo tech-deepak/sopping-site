@@ -7,7 +7,7 @@ export module ApiCallback {
 
 	export const ALL_PRODUCT_GET = '/api/product';
 	export const PRODUCT_POST = '/api/product';
-	export const PRODUCT_CATEGORY_GET = '/api/product/category/:id';
+	export const PRODUCT_BY_CATEGORY_GET = '/api/product/category/:catId';
 	export const PRODUCT_SEARCH_GET = '/api/product/search/:query';
 
 	export const CATEGORY_GET = '/api/product/categories';

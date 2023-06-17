@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  isLogged: boolean = false;
-  isAdmin: boolean = false;
-  constructor() { }
+	isLogged: any = localStorage.getItem('isLogged');
+	isAdmin: any = localStorage.getItem('isAdmin');
 
-  ngOnInit(): void {
-  }
+	constructor() { }
 
-  signOut() {
+	ngOnInit(): void {
+		console.log(this.isLogged, this.isAdmin);
+	}
 
-  }
+	signOut() {
+		localStorage.clear();
+		location.reload();
+	}
 
 }

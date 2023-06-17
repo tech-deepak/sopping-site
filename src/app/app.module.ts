@@ -9,14 +9,14 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductComponent } from './product/product.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { PorductListComponent } from './porduct-list/porduct-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ViewCartComponent } from './view-cart/view-cart.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OrderComponent } from './order/order.component';
 import { AddProductComponent } from './add-product/add-product.component';
-
+import { HttpInterceptorInterceptor } from './http-interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +36,14 @@ import { AddProductComponent } from './add-product/add-product.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { 
+      provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorInterceptor, multi:true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

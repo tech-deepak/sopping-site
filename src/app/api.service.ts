@@ -21,7 +21,6 @@ export class ApiService {
 	) { }
 
 	get(callback: string, queryParams: any = '', bashUrl = this.bashUrl) {
-		console.log(callback, queryParams, bashUrl)
 		if (!!queryParams && !!Object.keys(queryParams).length) {
 			queryParams = `?${this.commonService.jsonToQueryString(queryParams)}`;
 		}

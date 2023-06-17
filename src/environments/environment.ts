@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  bashUrl: 'http://localhost:5000'
+  bashUrl: 'https://localhost:5001'
 };
 
 /*

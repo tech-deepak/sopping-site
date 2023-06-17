@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-product-list',
@@ -12,25 +13,9 @@ import { ApiService } from '../api.service';
 export class ProductListComponent implements OnInit {
 	showDetail: boolean = false;
 	isAdmin: boolean = false;
-
-	products: any = [{
-		pname: 'asdfa',
-		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
-		pPrice: 43,
-		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
-	},
-	{
-		pname: 'asdfa',
-		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
-		pPrice: 43,
-		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
-	},
-	{
-		pname: 'asdfa',
-		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
-		pPrice: 43,
-		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
-	}];
+	bashUrl = environment.bashUrl;
+	categories: any = [];
+	products: any = [];
 
 	constructor(
 		public route: Router,
@@ -38,15 +23,31 @@ export class ProductListComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		console.log('hi there')
 		this.api.get(ApiCallback.ALL_PRODUCT_GET).subscribe((data) => {
-			console.log(data);
 			this.products = data
-		})
+		});
+
+		this.api.get(ApiCallback.CATEGORY_GET).subscribe((data) => {
+			// this.products = data
+			this.categories = data
+		});
+
 	}
 
 	openProduct(product: any) {
 		this.route.navigate(['/product', product.pid])
+	}
+
+	onCategoryChange(event: any) {
+		this.api.get(ApiCallback.PRODUCT_BY_CATEGORY_GET.replace(':catId', event.target.value)).subscribe((data) => {
+			this.products = data
+		});
+	}
+
+	searchProduct(event: any) {
+		this.api.get(ApiCallback.PRODUCT_SEARCH_GET.replace(':query', event.target.value)).subscribe((data) => {
+			this.products = data
+		});
 	}
 
 }

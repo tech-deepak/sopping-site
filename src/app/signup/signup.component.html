@@ -1,33 +1,40 @@
 <div class="container">
     <div class="row">
        <div class="col-md-8 offset-md-2">
-            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
-                <h3 class="display-4">Sign Up</h3>
+            <form (ngSubmit)="signup()" [formGroup]="signupForm">
+                <h2>Sign Up</h2>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Full Name</label>
-                    <input type="email" class="form-control" name="fullName" placeholder="Full Name" maxlength="50" pattern="/^[a-zA-Z]+$/" ngModel>
+                    <input type="email" class="form-control" maxlength="50" formControlName="fullName" placeholder="Full Name" maxlength="50" >
+                    <div *ngIf="signupForm?.controls?.fullName?.errors?.required && clicked" class="text-danger">Full name is required</div>
+
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Enter email" ngModel>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                    <div *ngIf="signupForm?.controls?.email?.errors?.required && clicked" class="text-danger">Email is required</div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Phone Number</label>
-                    <input type="email" class="form-control" name="phonenumber" placeholder="Phone Number" ngModel>
+                    <input type="tel" class="form-control" maxlength="10" formControlName="phonenumber" placeholder="Phone Number">
+                    <div *ngIf="signupForm?.controls?.phonenumber?.errors?.required && clicked" class="text-danger">Phone Number is required</div>
+                    <div *ngIf="signupForm?.controls?.phonenumber?.errors?.pattern && clicked" class="text-danger">Enter Valid Number</div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" ngModel>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                    <div *ngIf="signupForm?.controls?.password?.errors?.required && clicked" class="text-danger">Phone Number is required</div>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" ngModel>
+                    <input type="password" class="form-control" formControlName="confirmpassword" placeholder="Confirm Password">
+                    <div *ngIf="signupForm?.controls?.confirmpassword?.errors?.required && clicked" class="text-danger">Phone Number is required</div>
                 </div>
+                <div *ngIf="signupForm?.errors?.mismatch" class="text-danger">PassWord not match</div>
+
                 <button type="submit" class="btn btn-primary">Sign Up Here</button>
                 <a href="/admin/login" class="float-right">Interested in selling?</a>
             </form>
-            <!-- <button type="submit" class="btn btn-primary">Interested in selling?</button> -->
-
        </div>
     </div>
 </div>
