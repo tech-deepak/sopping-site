@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ConfirmedValidator } from '../match-password.validator'
+
 @Component({
 	selector: 'app-signup',
 	templateUrl: './signup.component.html',
@@ -43,7 +43,8 @@ export class SignupComponent implements OnInit {
 		// console.log("1111111111111", data)
 		if(this.signupForm.status === 'VALID') {
 			this.apiService.post(ApiCallback.SING_UP, this.signupForm.value).subscribe((res) => {
-
+				localStorage.setItem('isLogged', JSON.stringify(true));
+				location.reload()
 			})
 		}
 	}

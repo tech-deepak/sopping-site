@@ -1,13 +1,15 @@
 <section>
-	<div class="bg-light m-5">
+	<div class="bg-light m-5 pb-5">
 		<div class="text-center p-3">
 			<img src="https://localhost:5001/{{product.pImage}}" width="200px" alt="">
 		</div>
 		<div class="row">
 			<div class="col-6">
-				<div>{{ product.pname }}</div>
-				<div>{{ product.pPrice }}</div>
-				<div>FLAT {{ product.pDiscount }}% off</div>
+				<div class="ml-5">
+					<div class="font-weight-bold">{{ product.pname }}</div>
+					<div>₹ {{ product.pPrice }}</div>
+					<div>FLAT {{ product.pDiscount }}% off</div>
+				</div>
 			</div>
 			<div class="col-6">
 				<span class="button-add-remove">
@@ -15,7 +17,7 @@
 					{{ quantity }}
 					<button class="button-add" (click)="add()">+</button>
 				</span>
-				<button (click)="addToCart()">Add to cart</button>
+				<button (click)="addToCart()" class="btn btn-dark ml-4">Add to cart</button>
 			</div>
 		</div>
 	</div>

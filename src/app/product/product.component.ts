@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
 		public routeActivated: ActivatedRoute,
 	) {
 		this.routeActivated.params.subscribe((param) => {
+			this.pid = param.id
 			console.log(param)
 			this.getProduct(param.id)
 		})
@@ -48,7 +49,8 @@ export class ProductComponent implements OnInit {
 	}
 
 	addToCart() {
-		this.api.post(ApiCallback.ADD_TO_CART_POST, { pid: this.pid, quantity: this.quantity }).subscribe((res) => {
+		console.log(this.pid, this.quantity)
+		this.api.post(ApiCallback.ADD_TO_CART_POST, { pid: parseInt(this.pid), quantity: this.quantity }).subscribe((res) => {
 
 		})
 	}

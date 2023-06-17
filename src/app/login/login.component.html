@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <form #loginForm="ngForm"  (ngSubmit)="login(loginForm)">
-                <h3 class="display-4">Login</h3>
+                <h1><span *ngIf="isAdmin">Admin </span>Login</h1>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" ngModel>
@@ -12,6 +12,7 @@
                     <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" ngModel>
                 </div>
                 <button type="submit" class="btn btn-primary">Login Here</button>
+                <a *ngIf="!isAdmin" href="/admin/login" class="float-right">Interested in selling?</a>
             </form>
         </div>
     </div>
