@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
 
@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
 	constructor(
 		public api: ApiService,
 		public routeActivated: ActivatedRoute,
+		public router: Router
 	) {
 		this.routeActivated.params.subscribe((param) => {
 			this.pid = param.id
@@ -51,7 +52,7 @@ export class ProductComponent implements OnInit {
 	addToCart() {
 		console.log(this.pid, this.quantity)
 		this.api.post(ApiCallback.ADD_TO_CART_POST, { pid: parseInt(this.pid), quantity: this.quantity }).subscribe((res) => {
-
+			this.router.navigate(['/cart'])
 		})
 	}
 

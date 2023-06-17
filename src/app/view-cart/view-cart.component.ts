@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-view-cart',
@@ -13,9 +14,11 @@ export class ViewCartComponent implements OnInit {
 
 	products: any = [];
 	bashUrl = environment.bashUrl;
+
 	constructor(
-		public apiService: ApiService
-	) { }
+		public apiService: ApiService,
+		public router: Router
+		) { }
 
 	ngOnInit(): void {
 		this.apiService.get(ApiCallback.GET_CART_GET).subscribe((response) => {
@@ -39,7 +42,7 @@ export class ViewCartComponent implements OnInit {
 
 	placeOrder() {
 		this.apiService.post(ApiCallback.MAKE_ORDER_POST, {}).subscribe((res) => {
-
+			this.router.navigate(['/'])
 		})
 	}
 
