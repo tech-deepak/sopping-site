@@ -13,7 +13,24 @@ export class ProductListComponent implements OnInit {
 	showDetail: boolean = false;
 	isAdmin: boolean = false;
 
-	products: any = [];
+	products: any = [{
+		pname: 'asdfa',
+		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
+		pPrice: 43,
+		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
+	},
+	{
+		pname: 'asdfa',
+		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
+		pPrice: 43,
+		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
+	},
+	{
+		pname: 'asdfa',
+		pDescription: 'jaksdfhakjdhfjkahj fha jkh kjasdhf kas',
+		pPrice: 43,
+		pImage : 'https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8='
+	}];
 
 	constructor(
 		public route: Router,
@@ -28,7 +45,7 @@ export class ProductListComponent implements OnInit {
 	}
 
 	openProduct(product: any) {
-		this.route.navigate(['/product', product.name])
+		this.route.navigate(['/product', 'asdf'])
 	}
 
 }

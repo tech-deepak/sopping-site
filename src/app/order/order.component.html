@@ -1,0 +1,16 @@
+<section class="container">
+    <div class="row product-background" *ngFor="let item of products">
+        <div class="col-9">
+            <div class="d-flex">
+                <div>
+                    <img width="80px" src="https://media.istockphoto.com/id/458105659/photo/heinz-ketchup-bottle-isolated.jpg?s=1024x1024&w=is&k=20&c=EqWRjTGNWMY9rPSXk4zVIrBch4fHP8j4z4n5yEHl4g8=" alt="">
+                </div>
+                <div class="ml-5">
+                    <div class="name">{{ item.pname }}</div>
+                    <div class="item">{{ item.quantity }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 date">{{ item.date | date : 'MMM dd, YYYY' }}</div>
+    </div>
+</section>

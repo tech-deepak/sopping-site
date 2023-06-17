@@ -12,6 +12,10 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { FormsModule } from '@angular/forms';
 // import { PorductListComponent } from './porduct-list/porduct-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ViewCartComponent } from './view-cart/view-cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OrderComponent } from './order/order.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +28,15 @@ import { ProductListComponent } from './product-list/product-list.component';
     AdminhomeComponent,
     // PorductListComponent,
     ProductListComponent,
+    ViewCartComponent,
+    OrderComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

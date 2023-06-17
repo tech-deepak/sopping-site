@@ -1,7 +1,7 @@
 <div *ngIf="!isAdmin" class="boader-bottom">
    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
       <div class="container-fluid">
-         <div class="collapse navbar-collapse" id="navbarColor01">
+         <div class="" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                <li class="nav-item active">
                   <a class="nav-link" href="/">Grocery App</a>
@@ -10,10 +10,10 @@
                   <a class="nav-link" href="about.html">User</a>
                </li>
                <li class="nav-item" *ngIf="isLogged">
-                  <a class="nav-link" href="product.html">View Cart</a>
+                  <a class="nav-link" href="cart">View Cart</a>
                </li>
                <li class="nav-item" *ngIf="isLogged">
-                  <a class="nav-link" href="gallery.html">My Orders</a>
+                  <a class="nav-link" href="order">My Orders</a>
                </li>
                <li class="nav-item" *ngIf="isLogged">
                   <a class="nav-link" href="javascript:void(0)" role="button" (click)="signOut()">Sign Out</a>
@@ -36,16 +36,16 @@
 <div *ngIf="isAdmin" class="boader-bottom">
    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
       <div class="container-fluid">
-         <div class="collapse navbar-collapse" id="navbarColor01">
+         <div class="" id="navbarColor01">
             <ul class="navbar-nav me-auto">
                <li class="nav-item">
-                  <a class="nav-link" href="/">Grocery App</a>
+                  <a class="nav-link" href="admin/product-list">Grocery App</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="">Admin</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">Add Product</a>
+                  <a class="nav-link" href="admin/add-product">Add Product</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="javascript:void(0)" role="button" (click)="signOut()">Sign Out</a>

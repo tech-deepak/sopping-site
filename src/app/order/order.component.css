@@ -1,0 +1,23 @@
+.product-background {
+    background-color: #ebebeb;
+    padding: 20px;
+    margin: 13px 0px;
+}
+
+.name {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.item {
+    color: #a1a1a1;
+
+}
+
+.date {
+    color: #a1a1a1;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
