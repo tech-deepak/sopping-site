@@ -28,7 +28,6 @@ export class ProductListComponent implements OnInit {
 		});
 
 		this.api.get(ApiCallback.CATEGORY_GET).subscribe((data) => {
-			// this.products = data
 			this.categories = data
 		});
 
