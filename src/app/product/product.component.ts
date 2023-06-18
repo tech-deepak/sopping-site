@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiCallback } from '../api-callback';
 import { ApiService } from '../api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-product',
@@ -15,6 +16,8 @@ export class ProductComponent implements OnInit {
 	quantity = 1;
 	pid: any;
 	product: any;
+	bashUrl = environment.bashUrl;
+	isLoggedIn = localStorage.getItem('token');
 
 	constructor(
 		public api: ApiService,
@@ -50,7 +53,6 @@ export class ProductComponent implements OnInit {
 	}
 
 	addToCart() {
-		console.log(this.pid, this.quantity)
 		this.api.post(ApiCallback.ADD_TO_CART_POST, { pid: parseInt(this.pid), quantity: this.quantity }).subscribe((res) => {
 			this.router.navigate(['/cart'])
 		})
